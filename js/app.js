@@ -69,3 +69,25 @@ function deleteNote(index){
   localStorage.setItem("notes" , JSON.stringify(notesArr) );
   showNotes();
 }
+
+
+//Seach function
+let inputTxt = document.getElementById("searchTxt") ;
+inputTxt.addEventListener("input" , function(){
+  let searchTxt = inputTxt.value.toLowerCase() ;
+  let noteCards = document.getElementsByClassName('noteCard');
+  Array.from(noteCards).forEach(function(element){
+    let cardTxt = element.getElementsByTagName("p")[0].innerText.toLowerCase() ;
+    if(cardTxt.includes(searchTxt)){
+      element.style.display = "block" ;
+    }
+    else{
+      element.style.display = "none" ;
+    }
+  });
+
+
+}) ;
+
+
+
